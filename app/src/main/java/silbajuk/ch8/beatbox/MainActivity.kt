@@ -10,9 +10,15 @@ import silbajuk.ch8.beatbox.databinding.ActivityMainBinding
 import silbajuk.ch8.beatbox.databinding.ListItemSoundBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var beatBox: BeatBox
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        beatBox = BeatBox(assets)
+        beatBox.loadSounds()
 
         val binding:ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
