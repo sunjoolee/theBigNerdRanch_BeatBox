@@ -1,7 +1,25 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recycler_view"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
-</androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+       android:layout_height="match_parent"
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="0.2"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+    <SeekBar
+        android:id="@+id/speedSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:max="5"
+        android:progress="1"/>
+</LinearLayout>
 </layout>

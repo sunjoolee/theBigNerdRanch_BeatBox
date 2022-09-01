@@ -3,6 +3,7 @@ package silbajuk.ch8.beatbox
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,11 +27,30 @@ class MainActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(context, 3)
             adapter = SoundAdapter(beatBox.sounds)
         }
+
+        binding.speedSeekBar.apply {
+            setOnSeekBarChangeListener(SeekBarListener())
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         beatBox.release()
+    }
+
+    private inner class SeekBarListener:SeekBar.OnSeekBarChangeListener{
+        override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+            beatBox.setSpeed(p1)
+        }
+
+        override fun onStartTrackingTouch(p0: SeekBar?) {
+            //TODO("Not yet implemented")
+        }
+
+        override fun onStopTrackingTouch(p0: SeekBar?) {
+            //TODO("Not yet implemented")
+        }
+
     }
 
     private inner class SoundHolder(private val binding: ListItemSoundBinding): RecyclerView.ViewHolder(binding.root){
